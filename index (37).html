@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Конспекти · 9 клас</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Manrope:wght@500;600;700&display=swap">
+<style>
+/* Layout: шапка з емблемою, перемикач класів 10 / 11, під ним сітка карток предметів обраного класу */
+:root{
+  --bg:#F4F6F9; --surface:#FFFFFF; --sunk:#EAEEF4; --ink:#152030; --muted:#566275; --line:#D9DFE8; --accent:#1F4E79;
+  --s-zu:#56652A; --s-pe:#0F766E; --s-tech:#B4441C; --s-inf:#2B57B8;
+  --f-display:"Unbounded","Manrope",system-ui,sans-serif; --f-ui:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E141C; --surface:#151D28; --sunk:#1B2532; --ink:#E5EAF1; --muted:#9AA6B7; --line:#2A3546; --accent:#86B5E3;
+  --s-zu:#B4C27A; --s-pe:#5CC9BE; --s-tech:#F0956B; --s-inf:#8CAEFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E141C; --surface:#151D28; --sunk:#1B2532; --ink:#E5EAF1; --muted:#9AA6B7; --line:#2A3546; --accent:#86B5E3;
+  --s-zu:#B4C27A; --s-pe:#5CC9BE; --s-tech:#F0956B; --s-inf:#8CAEFF; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:28px 60px}
+header{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+header img{width:52px;height:52px;border-radius:12px}
+header h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4vw,30px);margin:0;line-height:1.15;text-wrap:balance}
+header p{margin:2px 0 0;color:var(--muted)}
+.switch{display:inline-flex;gap:4px;background:var(--sunk);padding:5px;border-radius:999px;margin-bottom:22px}
+.switch button{border:0;background:transparent;font:700 16px var(--f-ui);color:var(--muted);padding:10px 26px;border-radius:999px;cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;border-top:5px solid var(--c);transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-2px);border-color:var(--c)}
+.card b{font-family:var(--f-display);font-weight:500;font-size:19px;line-height:1.25}
+.card span{color:var(--muted);font-size:14px}
+.card em{font-style:normal;font-weight:700;font-size:13px;color:var(--c);margin-top:auto;padding-top:8px}
+.empty{grid-column:1/-1;margin:0;padding:28px 22px;border:1.5px dashed var(--line);border-radius:16px;color:var(--muted);text-align:center;background:var(--surface)}
+.note{margin-top:26px;color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img alt="Емблема ліцею" src="data:image/jpeg;base64,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"><div><h1>Конспекти · 9 клас</h1><p>Ліцей «ЯСНО» · теорія, приклади й тести для самостійного навчання</p></div></header>
+  <section class="grid" id="subjects">
+    <a class="card" style="--c:var(--s-pe)" href="fizkultura9.html"><b>Фізична культура</b><span>105 уроків: легка атлетика, футбол, баскетбол, баскетбол 3×3, волейбол, пляжний волейбол, доджбол, футзал</span><em>Конспекти + тести →</em></a>
+    <a class="card" style="--c:#B7791F" href="zarubizhna9.html"><b>Зарубіжна література</b><span>Уроки за КТП: основна інформація, сюжет і герої, тест до кожної теми, посилання на підручник</span><em>Конспекти + тести →</em></a>
+    <a class="card" style="--c:var(--s-zu)" href="hromadianska9.html"><b>Громадянська освіта</b><span>Уроки за КТП: основні поняття, приклади, тест до кожної теми</span><em>Конспекти + тести →</em></a>
+    <a class="card" style="--c:#1D4ED8" href="ukrlit9.html"><b>Українська література</b><span>Уроки за КТП: основна інформація, сюжет і герої, тест до кожної теми</span><em>Конспекти + тести →</em></a>
+    <a class="card" style="--c:#0E7490" href="anhliiska9.html"><b>Англійська мова</b><span>140 уроків за New Close-up B1: лексика, граматика, читання, письмо, тест до кожного уроку</span><em>Конспекти + тести →</em></a>
+    <a class="card" style="--c:#D97706" href="fizyka9.html"><b>Фізика</b><span>105 уроків за КТП: струм у середовищах, магнетизм, хвилі, оптика, атом і ядро; задачі з розв’язанням, лабораторні</span><em>Конспекти + тести →</em></a>
+  </section>
+  <p class="note">Результати тестів зберігаються лише у вашому браузері.</p>
+</div>
+</body>
+</html>
